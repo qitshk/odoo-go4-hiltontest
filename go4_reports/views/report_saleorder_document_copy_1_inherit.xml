@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_saleorder_document_copy_1_inherit" inherit_id="studio_customization.report_saleorder_doc_142da6d6-2b30-4c64-bc43-d364b24641d6">
+        <xpath expr="//t[@t-value='doc.with_context(lang=doc.partner_id.lang)']" position="before">
+            <t t-if="doc.name" t-set="so_no" t-value="True" /> <!--to ensure it is a quotaiton/sales order, to be called in "external_layout_boxed_inherit"-->
+        </xpath>
+
+        <xpath expr="//span[@t-field='doc.name']" position="replace">
+            <t t-if="doc.x_studio_revision">
+                <span t-field="doc.name"/><span>-</span><span t-field="doc.x_studio_revision"/>
+            </t>
+            <t t-else="">
+                <span t-field="doc.name"/>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

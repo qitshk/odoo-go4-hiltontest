@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="stock_account_report_product_product_replenishment_inherit" inherit_id="stock_account.stock_account_report_product_product_replenishment">
+        <!--Remove Stock Value costing-->
+        <xpath expr='//div[@t-attf-class="mx-3 text-center"]' position="replace"/>
+    </template>
+
+</odoo>

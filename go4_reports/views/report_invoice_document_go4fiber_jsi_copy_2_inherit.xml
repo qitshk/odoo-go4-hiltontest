@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_invoice_document_go4fiber_jsi_copy_2_inherit" inherit_id="studio_customization.report_invoice_docum_68fa0c90-8409-4efb-a714-5324526635ea">
+        <xpath expr="//t[@t-value='o.with_context(lang=lang)']" position="before">
+            <t t-if="o.name" t-set="inv_no" t-value="True" /> <!--to ensure it is an invoice order, to be called in "external_layout_boxed_inherit"-->
+         </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_saleorder_doc_142da6d6-2b30-4c64-bc43-d364b24641d6_inherit" inherit_id="studio_customization.report_saleorder_doc_142da6d6-2b30-4c64-bc43-d364b24641d6">
+        <!--Repeat quotation table header: "display: table-row-group" is removed from thead tag-->
+        <xpath expr='//thead[@style="display: table-row-group"]' position="replace">
+            <thead>
+                <tr>
+                    <th name="th_description" class="text-left">Description</th>
+                    <th name="th_quantity" class="text-right">Quantity</th>
+                    <th name="th_priceunit" class="text-right">Unit Price</th>
+                    <th name="th_discount" t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">
+                        <span>Disc.%</span>
+                    </th>
+                    <th name="th_taxes" class="text-right">Taxes</th>
+                    <th name="th_subtotal" class="text-right">
+                        <span groups="account.group_show_line_subtotals_tax_excluded">Amount</span>
+                        <span groups="account.group_show_line_subtotals_tax_included">Total Price</span>
+                    </th>
+                </tr>
+            </thead> 
+        </xpath>           
+    </template>
+
+</odoo>

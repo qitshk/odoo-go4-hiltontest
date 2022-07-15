@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_delivery_document_copy_5" inherit_id="studio_customization.report_delivery_docu_a5a94806-0eb1-4667-b019-4ce0f551e5ae">
+        <xpath expr="//t[@t-value='o.with_context(lang=o.partner_id.lang)']" position="before">
+            <t t-if="o.name" t-set="delivery_no" t-value="True" /> <!--to ensure it is an delivery order, to be called in "external_layout_boxed_inherit"-->
+        </xpath>
+    </template>
+
+</odoo>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="external_layout_boxed_inherit" inherit_id="web.external_layout_boxed">
+        <xpath expr="//div[hasclass('o_boxed_header')]" position="replace">
+            <div class="o_boxed_header">
+              <div class="row mb8">
+                <div class="col-5">
+                  <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+                </div>
+                <div class="col-7 text-right mb4">
+                  <h4 class="mt0" t-field="company.report_header"/>
+                  <div name="company_address" class="float-right mb4">
+                    <span class="company_address" t-field="company.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: true}"/>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </xpath>
+
+        <xpath expr="//div[@t-field='company.report_footer']" position="after">
+            <t t-if="so_no"> <!--ensure it has sales order no.-->
+                <t t-if="doc.x_studio_revision">
+                    <span t-field="doc.name"/>-<span t-field="doc.x_studio_revision"/>
+                </t>
+                <t t-else="">
+                    <span t-field="doc.name"/>
+                </t>
+            </t>
+            <t t-if="inv_no"> <!--ensure it has invoice no.-->
+                <span t-field="o.name"/>
+            </t>
+            <t t-if="delivery_no"> <!--ensure it has delivery no.-->
+                <span t-field="o.name"/>
+            </t>
+        </xpath>
+    </template>
+
+</odoo>

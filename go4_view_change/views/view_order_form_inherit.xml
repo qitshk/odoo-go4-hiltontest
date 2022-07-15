@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_order_form_inherit" model="ir.ui.view">
+    <!--disable 'Create & Edit' features-->
+        <field name="name">view.order.form.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="attributes">
+                <attribute name="options">
+                    {'no_create_edit': True, 'no_create': True, &quot;always_reload&quot;: True}
+                </attribute>
+            </field>
+            <xpath expr="(//field[@name='product_id'])[2]" position="attributes"> <!--xpath to address any field with attribute name=product_id with 2nd in sequence-->
+                <attribute name="options">
+                    {'no_create_edit': True, 'no_create': True, 'no_open': True}
+                </attribute>               
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
